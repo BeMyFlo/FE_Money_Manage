@@ -40,9 +40,9 @@ const ExpenseChart = ({ data }) => {
 
   return (
     <div className="card">
-      <h3 className="text-lg font-semibold mb-4">Expense Breakdown</h3>
+      <h3 className="text-base sm:text-lg font-semibold mb-4">Expense Breakdown</h3>
 
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
         <PieChart>
           <Pie
             data={chartData}
@@ -73,18 +73,18 @@ const ExpenseChart = ({ data }) => {
           >
             <div className="flex items-center space-x-2">
               <div
-                className="w-4 h-4 rounded"
+                className="w-3 h-3 sm:w-4 sm:h-4 rounded"
                 style={{
                   backgroundColor: COLORS[item.category] || COLORS.other,
                 }}
               ></div>
-              <span className="text-sm text-gray-700 capitalize">
+              <span className="text-xs sm:text-sm text-gray-700 capitalize">
                 {item.category}
               </span>
             </div>
             <div className="text-right">
-              <p className="text-sm font-medium">{item.total}</p>
-              <p className="text-xs text-gray-500">{item.count} transactions</p>
+              <p className="text-xs sm:text-sm font-medium">{item.total}</p>
+              <p className="text-[10px] sm:text-xs text-gray-500">{item.count} transactions</p>
             </div>
           </div>
         ))}

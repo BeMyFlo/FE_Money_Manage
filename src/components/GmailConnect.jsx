@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { Mail, RefreshCw, Link as LinkIcon, Unlink } from "lucide-react";
 import { format } from "date-fns";
 
-const GmailConnect = () => {
+const GmailConnect = ({ onSyncComplete }) => {
   const [status, setStatus] = useState({ connected: false, lastSync: null });
   const [syncing, setSyncing] = useState(false);
   const [syncMonth, setSyncMonth] = useState(() => {
@@ -45,6 +45,11 @@ const GmailConnect = () => {
       );
       await fetchStatus();
       await refreshUser();
+
+      // Callback to refresh parent component data
+      if (onSyncComplete) {
+        onSyncComplete();
+      }
     } catch (error) {
       toast.error(error.response?.data?.message || "Sync failed");
     } finally {
@@ -67,12 +72,14 @@ const GmailConnect = () => {
 
   return (
     <div className="card">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
         <div className="flex items-center space-x-3">
           <Mail className="text-primary-600" size={24} />
           <div>
-            <h3 className="text-lg font-semibold">Gmail Integration</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="text-base sm:text-lg font-semibold">
+              Gmail Integration
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-600">
               {status.connected ? "Connected" : "Not connected"}
             </p>
           </div>
@@ -81,7 +88,7 @@ const GmailConnect = () => {
         {status.connected ? (
           <button
             onClick={handleDisconnect}
-            className="btn btn-secondary flex items-center space-x-2"
+            className="btn btn-secondary flex items-center justify-center space-x-2 w-full sm:w-auto"
           >
             <Unlink size={16} />
             <span>Disconnect</span>
@@ -89,7 +96,7 @@ const GmailConnect = () => {
         ) : (
           <button
             onClick={handleConnect}
-            className="btn btn-primary flex items-center space-x-2"
+            className="btn btn-primary flex items-center justify-center space-x-2 w-full sm:w-auto"
           >
             <LinkIcon size={16} />
             <span>Connect Gmail</span>

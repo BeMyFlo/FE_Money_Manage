@@ -92,18 +92,18 @@ const Categories = () => {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Quản Lý Danh Mục
             </h1>
-            <p className="text-gray-600 mt-1">
+            <p className="text-sm sm:text-base text-gray-600 mt-1">
               Tạo và quản lý danh mục cho giao dịch
             </p>
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="btn btn-primary flex items-center space-x-2"
+            className="btn btn-primary flex items-center space-x-2 w-full sm:w-auto"
           >
             <Plus size={20} />
             <span>Thêm Danh Mục</span>
@@ -138,17 +138,17 @@ const Categories = () => {
               <div className="flex space-x-2">
                 <button
                   onClick={() => handleEdit(category)}
-                  className="flex-1 py-2 px-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 flex items-center justify-center space-x-1"
+                  className="flex-1 py-2 px-2 sm:px-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 flex items-center justify-center space-x-1"
                 >
-                  <Edit size={16} />
-                  <span>Sửa</span>
+                  <Edit size={14} className="sm:w-4 sm:h-4" />
+                  <span className="text-sm">Sửa</span>
                 </button>
                 <button
                   onClick={() => handleDelete(category._id)}
-                  className="flex-1 py-2 px-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-lg hover:from-red-600 hover:to-pink-600 transition-all duration-200 flex items-center justify-center space-x-1"
+                  className="flex-1 py-2 px-2 sm:px-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-lg hover:from-red-600 hover:to-pink-600 transition-all duration-200 flex items-center justify-center space-x-1"
                 >
-                  <Trash2 size={16} />
-                  <span>Xóa</span>
+                  <Trash2 size={14} className="sm:w-4 sm:h-4" />
+                  <span className="text-sm">Xóa</span>
                 </button>
               </div>
             </div>

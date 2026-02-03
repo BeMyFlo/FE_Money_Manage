@@ -60,9 +60,9 @@ const ExpenseModal = ({ expense, onClose, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl">
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-4 rounded-t-2xl flex justify-between items-center">
-          <h2 className="text-xl font-semibold">
+      <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-t-2xl flex justify-between items-center sticky top-0 z-10">
+          <h2 className="text-lg sm:text-xl font-semibold">
             {expense ? "Sửa Giao Dịch" : "Thêm Giao Dịch"}
           </h2>
           <button
@@ -73,7 +73,10 @@ const ExpenseModal = ({ expense, onClose, onSuccess }) => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="p-4 sm:p-6 space-y-3 sm:space-y-4"
+        >
           <div>
             <label className="label">Số Tiền</label>
             <input

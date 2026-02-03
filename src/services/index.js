@@ -1,4 +1,7 @@
 import api from "./api";
+import { gmailService } from "./gmailService";
+
+export { gmailService };
 
 export const authService = {
   register: async (data) => {
@@ -39,28 +42,6 @@ export const authService = {
 
   isAuthenticated: () => {
     return !!localStorage.getItem("token");
-  },
-};
-
-export const gmailService = {
-  getAuthUrl: async () => {
-    const response = await api.get("/gmail/auth-url");
-    return response.data;
-  },
-
-  syncEmails: async (params) => {
-    const response = await api.post("/gmail/sync", params);
-    return response.data;
-  },
-
-  disconnect: async () => {
-    const response = await api.delete("/gmail/disconnect");
-    return response.data;
-  },
-
-  getStatus: async () => {
-    const response = await api.get("/gmail/status");
-    return response.data;
   },
 };
 
