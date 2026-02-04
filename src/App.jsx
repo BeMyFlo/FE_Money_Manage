@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Categories from "./pages/Categories";
+import BankEmailConfigs from "./pages/BankEmailConfigs";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,6 +45,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Categories />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/bank-email-configs"
+              element={
+                <PrivateRoute>
+                  <BankEmailConfigs />
                 </PrivateRoute>
               }
             />

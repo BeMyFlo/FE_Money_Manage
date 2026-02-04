@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { LogOut, LayoutDashboard, Tag } from "lucide-react";
+import { LogOut, LayoutDashboard, Tag, Mail } from "lucide-react";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -16,6 +16,11 @@ const Navbar = () => {
   const navLinks = [
     { path: "/dashboard", label: "Bảng Điều Khiển", icon: LayoutDashboard },
     { path: "/categories", label: "Danh Mục", icon: Tag },
+    {
+      path: "/bank-email-configs",
+      label: "Cấu hình Email",
+      icon: Mail,
+    },
   ];
 
   return (

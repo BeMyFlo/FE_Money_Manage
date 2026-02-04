@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
 import { Mail, RefreshCw, Link as LinkIcon, Unlink } from "lucide-react";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const GmailConnect = ({ onSyncComplete }) => {
   const [status, setStatus] = useState({ connected: false, lastSync: null });
@@ -13,6 +14,7 @@ const GmailConnect = ({ onSyncComplete }) => {
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
   });
   const { refreshUser } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchStatus();
@@ -51,7 +53,30 @@ const GmailConnect = ({ onSyncComplete }) => {
         onSyncComplete();
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || "Sync failed");
+      const errorData = error.response?.data;
+
+      // Check if error is due to missing config
+      if (errorData?.requireConfig) {
+        toast.error(
+          (t) => (
+            <div className="flex flex-col gap-2">
+              <span>{errorData.message}</span>
+              <button
+                onClick={() => {
+                  toast.dismiss(t.id);
+                  navigate("/bank-email-configs");
+                }}
+                className="bg-white text-indigo-600 px-3 py-1 rounded text-sm font-medium hover:bg-gray-100"
+              >
+                Đi đến Cấu hình Email
+              </button>
+            </div>
+          ),
+          { duration: 6000 },
+        );
+      } else {
+        toast.error(errorData?.message || "Sync failed");
+      }
     } finally {
       setSyncing(false);
     }
