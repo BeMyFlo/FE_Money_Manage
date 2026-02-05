@@ -21,6 +21,21 @@ const ExpenseModal = ({ expense, onClose, onSuccess }) => {
     fetchCategories();
   }, []);
 
+  // Load expense data when expense prop changes
+  useEffect(() => {
+    if (expense) {
+      setFormData({
+        amount: expense.amount || "",
+        description: expense.description || "",
+        category: expense.categoryId?.name || "",
+        transactionDate: expense.transactionDate
+          ? new Date(expense.transactionDate).toISOString().split("T")[0]
+          : new Date().toISOString().split("T")[0],
+        bankName: expense.bankName || "",
+      });
+    }
+  }, [expense]);
+
   const fetchCategories = async () => {
     try {
       const response = await api.get("/categories");
@@ -61,13 +76,13 @@ const ExpenseModal = ({ expense, onClose, onSuccess }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-t-2xl flex justify-between items-center sticky top-0 z-10">
+        <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-t-2xl flex justify-between items-center sticky top-0 z-10">
           <h2 className="text-lg sm:text-xl font-semibold">
             {expense ? "Sửa Giao Dịch" : "Thêm Giao Dịch"}
           </h2>
           <button
             onClick={onClose}
-            className="text-white hover:text-purple-100 transition-colors"
+            className="text-white hover:text-red-100 transition-colors"
           >
             <X size={24} />
           </button>

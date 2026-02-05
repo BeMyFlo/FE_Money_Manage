@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-primary: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
     --gradient-success: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
-    --gradient-danger: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-danger: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
     --gradient-warning: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
-    --gradient-card: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+    --gradient-card: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
   }
 
   body {
-    @apply bg-gradient-to-br from-purple-50 via-white to-indigo-50 text-gray-900;
+    @apply bg-gradient-to-br from-red-50 via-white to-orange-50 text-gray-900;
   }
 }
 
@@ -22,7 +22,7 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700;
+    @apply bg-gradient-to-r from-red-600 to-orange-500 text-white hover:from-red-700 hover:to-orange-600;
   }
 
   .btn-secondary {
@@ -46,7 +46,7 @@
   }
 
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200;
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200;
   }
 
   .card {

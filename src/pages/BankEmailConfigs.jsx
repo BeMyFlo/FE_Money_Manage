@@ -186,7 +186,7 @@ export default function BankEmailConfigs() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
         <Navbar />
         <div className="flex items-center justify-center h-screen">
           <div className="text-xl">Đang tải...</div>
@@ -196,17 +196,17 @@ export default function BankEmailConfigs() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
             Cấu hình Email Ngân hàng
           </h1>
           <button
             onClick={openNewModal}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg"
+            className="bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600 text-white px-4 py-2 rounded-lg"
           >
             + Thêm cấu hình
           </button>
@@ -281,7 +281,7 @@ export default function BankEmailConfigs() {
                         </button>
                         <button
                           onClick={() => handleEdit(config)}
-                          className="text-indigo-600 hover:text-indigo-900 mr-4"
+                          className="text-red-600 hover:text-red-900 mr-4"
                         >
                           Sửa
                         </button>
@@ -331,7 +331,7 @@ export default function BankEmailConfigs() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                   placeholder="VD: VPBank - Thẻ ghi nợ"
                 />
                 <p className="mt-1 text-xs text-gray-500">
@@ -349,7 +349,7 @@ export default function BankEmailConfigs() {
                   value={formData.bankName}
                   onChange={handleInputChange}
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                   placeholder="VD: VPBank"
                 />
               </div>
@@ -371,7 +371,7 @@ export default function BankEmailConfigs() {
                       onChange={(e) =>
                         handleArrayChange("fromPatterns", index, e.target.value)
                       }
-                      className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                       placeholder="VD: vpbankonline@vpb.com.vn hoặc VPBank"
                     />
                     {formData.fromPatterns.length > 1 && (
@@ -388,7 +388,7 @@ export default function BankEmailConfigs() {
                 <button
                   type="button"
                   onClick={() => addArrayItem("fromPatterns")}
-                  className="text-sm text-indigo-600 hover:text-indigo-900"
+                  className="text-sm text-red-600 hover:text-red-900"
                 >
                   + Thêm email người gửi
                 </button>
@@ -414,7 +414,7 @@ export default function BankEmailConfigs() {
                           e.target.value,
                         )
                       }
-                      className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                       placeholder="VD: Thông báo giao dịch"
                     />
                     <button
@@ -429,7 +429,7 @@ export default function BankEmailConfigs() {
                 <button
                   type="button"
                   onClick={() => addArrayItem("subjectPatterns")}
-                  className="text-sm text-indigo-600 hover:text-indigo-900"
+                  className="text-sm text-red-600 hover:text-red-900"
                 >
                   + Thêm từ khóa
                 </button>
@@ -451,7 +451,7 @@ export default function BankEmailConfigs() {
                       onChange={(e) =>
                         handleArrayChange("bodyKeywords", index, e.target.value)
                       }
-                      className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                       placeholder="VD: giao dịch, trích nợ, chuyển tiền"
                     />
                     <button
@@ -466,7 +466,7 @@ export default function BankEmailConfigs() {
                 <button
                   type="button"
                   onClick={() => addArrayItem("bodyKeywords")}
-                  className="text-sm text-indigo-600 hover:text-indigo-900"
+                  className="text-sm text-red-600 hover:text-red-900"
                 >
                   + Thêm từ khóa
                 </button>
@@ -517,7 +517,7 @@ export default function BankEmailConfigs() {
                     <button
                       type="button"
                       onClick={() => addArrayItem("amountLabels")}
-                      className="text-sm text-indigo-600 hover:text-indigo-900"
+                      className="text-sm text-red-600 hover:text-red-900"
                     >
                       + Thêm nhãn
                     </button>
@@ -560,7 +560,7 @@ export default function BankEmailConfigs() {
                     <button
                       type="button"
                       onClick={() => addArrayItem("descriptionLabels")}
-                      className="text-sm text-indigo-600 hover:text-indigo-900"
+                      className="text-sm text-red-600 hover:text-red-900"
                     >
                       + Thêm nhãn
                     </button>
@@ -574,7 +574,7 @@ export default function BankEmailConfigs() {
                   name="isActive"
                   checked={formData.isActive}
                   onChange={handleInputChange}
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
                 />
                 <label className="ml-2 block text-sm text-gray-900">
                   Kích hoạt cấu hình này
@@ -594,7 +594,7 @@ export default function BankEmailConfigs() {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600"
                 >
                   {editingConfig ? "Cập nhật" : "Tạo mới"}
                 </button>
@@ -636,7 +636,7 @@ export default function BankEmailConfigs() {
                     setTestEmail({ ...testEmail, from: e.target.value })
                   }
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                   placeholder="VD: vpbankonline@vpb.com.vn"
                 />
               </div>
@@ -652,7 +652,7 @@ export default function BankEmailConfigs() {
                     setTestEmail({ ...testEmail, subject: e.target.value })
                   }
                   required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                   placeholder="VD: Thông báo giao dịch"
                 />
               </div>
@@ -667,14 +667,14 @@ export default function BankEmailConfigs() {
                     setTestEmail({ ...testEmail, body: e.target.value })
                   }
                   rows={6}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
                   placeholder="Nội dung email..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                className="w-full px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600"
               >
                 Test
               </button>

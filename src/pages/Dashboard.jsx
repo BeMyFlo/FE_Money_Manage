@@ -124,24 +124,24 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
         <Navbar />
         <div className="flex items-center justify-center h-96">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
           <div>
-            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
               Bảng Điều Khiển
             </h1>
             <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base">
@@ -159,7 +159,6 @@ const Dashboard = () => {
 
         {/* Month Selector */}
         <div className="mb-6">
-          <label className="label">Chọn Tháng</label>
           <input
             type="month"
             value={selectedMonth}
@@ -213,14 +212,14 @@ const Dashboard = () => {
                 <p className="text-xs sm:text-sm text-gray-600 font-medium">
                   Trung Bình/Ngày
                 </p>
-                <p className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                <p className="text-xl sm:text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
                   {summary?.totalExpense
                     ? (summary.totalExpense / 30).toLocaleString("vi-VN")
                     : 0}{" "}
                   VNĐ
                 </p>
               </div>
-              <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
                 <Calendar className="text-white" size={20} />
               </div>
             </div>
@@ -233,7 +232,7 @@ const Dashboard = () => {
 
           {/* Recent Expenses */}
           <div className="card-gradient">
-            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
               Giao Dịch Gần Đây
             </h3>
             <div className="space-y-3 max-h-96 overflow-y-auto">
@@ -315,7 +314,7 @@ const Dashboard = () => {
         {/* All Expenses Table */}
         {expenses.length > 0 && (
           <div className="card-gradient">
-            <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
               Tất Cả Giao Dịch
             </h3>
 
@@ -400,7 +399,7 @@ const Dashboard = () => {
             {/* Desktop Table View */}
             <div className="hidden lg:block overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gradient-to-r from-purple-600 to-indigo-600">
+                <thead className="bg-gradient-to-r from-red-600 to-orange-500">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
                       Ngày
@@ -426,7 +425,7 @@ const Dashboard = () => {
                   {expenses.map((expense) => (
                     <tr
                       key={expense._id}
-                      className="hover:bg-purple-50 transition-colors"
+                      className="hover:bg-red-50 transition-colors"
                     >
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {format(
@@ -504,7 +503,7 @@ const Dashboard = () => {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex flex-col sm:flex-row items-center justify-between px-3 sm:px-6 py-4 border-t border-gray-200 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-b-xl gap-3">
+              <div className="flex flex-col sm:flex-row items-center justify-between px-3 sm:px-6 py-4 border-t border-gray-200 bg-gradient-to-r from-red-50 to-orange-50 rounded-b-xl gap-3">
                 <div className="text-xs sm:text-sm font-medium text-gray-700">
                   Trang {currentPage} / {totalPages}
                 </div>
@@ -512,7 +511,7 @@ const Dashboard = () => {
                   <button
                     onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
                     disabled={currentPage === 1}
-                    className="px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-purple-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+                    className="px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-red-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
                   >
                     Trước
                   </button>
@@ -537,8 +536,8 @@ const Dashboard = () => {
                           onClick={() => setCurrentPage(pageNum)}
                           className={`px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 ${
                             currentPage === pageNum
-                              ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
-                              : "text-gray-700 bg-white border border-gray-300 hover:bg-purple-50"
+                              ? "bg-gradient-to-r from-red-600 to-orange-500 text-white shadow-lg"
+                              : "text-gray-700 bg-white border border-gray-300 hover:bg-red-50"
                           }`}
                         >
                           {pageNum}
@@ -552,7 +551,7 @@ const Dashboard = () => {
                       setCurrentPage(Math.min(totalPages, currentPage + 1))
                     }
                     disabled={currentPage === totalPages}
-                    className="px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-purple-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+                    className="px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-red-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
                   >
                     Sau
                   </button>

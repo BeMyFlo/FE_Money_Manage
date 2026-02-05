@@ -10,6 +10,7 @@ const Categories = () => {
   const [showModal, setShowModal] = useState(false);
   const [editingCategory, setEditingCategory] = useState(null);
   const [formData, setFormData] = useState({
+    name: "",
     displayName: "",
     color: "#667eea",
   });
@@ -63,6 +64,7 @@ const Categories = () => {
   const handleEdit = (category) => {
     setEditingCategory(category);
     setFormData({
+      name: category.name,
       displayName: category.displayName,
       color: category.color,
     });
@@ -72,29 +74,29 @@ const Categories = () => {
   const handleCloseModal = () => {
     setShowModal(false);
     setEditingCategory(null);
-    setFormData({ displayName: "", color: "#667eea" });
+    setFormData({ name: "", displayName: "", color: "#667eea" });
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
         <Navbar />
         <div className="flex items-center justify-center h-96">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
       <Navbar />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
               Quản Lý Danh Mục
             </h1>
             <p className="text-sm sm:text-base text-gray-600 mt-1">
@@ -170,14 +172,31 @@ const Categories = () => {
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md">
-            <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-4 rounded-t-2xl">
+            <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-6 py-4 rounded-t-2xl">
               <h3 className="text-xl font-semibold">
                 {editingCategory ? "Sửa Danh Mục" : "Thêm Danh Mục Mới"}
               </h3>
             </div>
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div>
-                <label className="label">Tên Danh Mục</label>
+                <label className="label">Mã Danh Mục (name)</label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="input"
+                  placeholder="Ví dụ: tien an, giai tri, xang xe..."
+                  required
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Mã định danh dùng để nhận diện giao dịch
+                </p>
+              </div>
+
+              <div>
+                <label className="label">Tên Hiển Thị</label>
                 <input
                   type="text"
                   value={formData.displayName}

@@ -66,7 +66,7 @@ const GmailConnect = ({ onSyncComplete }) => {
                   toast.dismiss(t.id);
                   navigate("/bank-email-configs");
                 }}
-                className="bg-white text-indigo-600 px-3 py-1 rounded text-sm font-medium hover:bg-gray-100"
+                className="bg-white text-red-600 px-3 py-1 rounded text-sm font-medium hover:bg-gray-100"
               >
                 Đi đến Cấu hình Email
               </button>
@@ -99,7 +99,7 @@ const GmailConnect = ({ onSyncComplete }) => {
     <div className="card">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
         <div className="flex items-center space-x-3">
-          <Mail className="text-primary-600" size={24} />
+          <Mail className="text-red-600" size={24} />
           <div>
             <h3 className="text-base sm:text-lg font-semibold">
               Gmail Integration
